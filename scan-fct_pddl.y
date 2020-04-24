@@ -75,7 +75,7 @@ static char * serrmsg[] = {
 };
 
 
-/* void fcterr( int errno, char *par ); */
+ void fcterr( int errno, char *par ){};
 
 
 static int sact_err;
@@ -590,7 +590,7 @@ NAME  name_star
 /* 
  * call	bison -pfct -bscan-fct scan-fct.y
  */
-void fcterr( int errno, char *par ) {
+/* void fcterr( int errno, char *par ) { */
 
 /*   sact_err = errno; */
 
@@ -604,7 +604,7 @@ void fcterr( int errno, char *par ) {
 /*     sact_err_par = NULL; */
 /*   } */
 
-}
+/* } */
 
 
 

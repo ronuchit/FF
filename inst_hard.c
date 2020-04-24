@@ -124,7 +124,7 @@ void build_hard_action_templates( void )
   for ( i = 0; i < gnum_predicates; i++ ) {
     size = 1;
     for ( j = 0; j < garity[i]; j++ ) {
-      size *= gnum_constants;
+      size *= gtype_size[gpredicates_args_type[i][j]];
     }
     lini[i] = ( int_pointer ) calloc( size, sizeof( int ) );
     for ( j = 0; j < size; j++ ) {
@@ -750,13 +750,25 @@ int instantiated_fact_adress( Fact *f )
   int r = 0, b = 1, i;
 
   for ( i = 0; i < garity[f->predicate]; i++ ) {
-    r += b * f->args[i];
-    b *= gnum_constants;
+    r += b * gmember_nr[f->args[i]][gpredicates_args_type[f->predicate][i]];
+    b *= gtype_size[gpredicates_args_type[f->predicate][i]];
   }
 
   return r;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

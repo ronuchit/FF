@@ -50,7 +50,6 @@
  * 
  *********************************************************************/ 
 
-/** Minor modification by siddharth**/
 
 
 
@@ -704,6 +703,7 @@ int main( int argc, char *argv[] )
   if ( !found_plan ) {
     printf("\n\nEnforced Hill-climbing failed !");
     printf("\nswitching to Best-first Search now.\n");
+    fflush(stdout);
     found_plan = do_best_first_search();
   }
 
@@ -764,10 +764,10 @@ void output_planner_info( void )
 	  gtempl_time + greach_time + grelev_time + gconn_time + gsearch_time );
 
   printf("\n\n");
-  print_official_result();
 
   exit( 0 );
 
+  print_official_result();
 
 }
 
@@ -792,14 +792,9 @@ void print_official_result( void )
   fprintf(out, "Time %d\n", 
 	 (int) ((lend.tms_utime - lstart.tms_utime + lend.tms_stime - lstart.tms_stime) * 10.0));
 
-  /*** Modified by Siddharth ***/
-  printf("*** States ***\n");
-  for ( i = 0; i < gnum_plan_ops+1; i++ ) {
+  for ( i = 0; i < gnum_plan_ops; i++ ) {
     print_official_op_name( gplan_ops[i] );
     fprintf(out, "\n");
-    printf("State \n");
-    print_state(gplan_states[i]);
-    printf("\n\n");
   }
 
   fclose( out );
@@ -881,8 +876,7 @@ void ff_usage( void )
 /*   printf("    116     1P extracted on each evaluated state <1Ph>\n"); */
 /*   printf("    117     H set collected for each evaluated state <1Ph>\n"); */
   
-  printf("\n-d <num>    switch on debugging\n");
-  printf("Also prints states.\n\n");
+  printf("\n-d <num>    switch on debugging\n\n");
 
 }
 

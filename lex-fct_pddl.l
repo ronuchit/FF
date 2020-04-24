@@ -1,6 +1,7 @@
 %{
 #include "ff.h"
 #include "parse.h"
+#define YY_NO_INPUT
   
   /* default yywrap function - always treat EOF as an EOF  */
 int fct_pddlwrap() { return 1; };
@@ -8,6 +9,8 @@ int fct_pddlwrap() { return 1; };
 int gbracket_count = 0;
 
 %}
+
+%option nounput
 
 a [Aa]
 b [Bb]

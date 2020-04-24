@@ -226,6 +226,7 @@ Bool do_enforced_hill_climbing( State *start, State *end )
     return TRUE;
   }  
   printf("\n\nCueing down from goal distance: %4d into depth ", h);
+  fflush(stdout);
 
   while ( h != 0 ) {
     if ( !search_for_better_state( &S, h, &S_, &h_ ) ) {
@@ -234,6 +235,7 @@ Bool do_enforced_hill_climbing( State *start, State *end )
     source_to_dest( &S, &S_ );
     h = h_;
     printf("\n                                %4d            ", h);
+    fflush(stdout);
   }
 
   return TRUE;
@@ -851,9 +853,11 @@ Bool do_best_first_search( void )
       min = first->h;
       if ( start ) {
 	printf("\nadvancing to distance : %4d", min);
+	fflush(stdout);
 	start = FALSE;
       } else {
 	printf("\n                        %4d", min);
+	fflush(stdout);
       }
     }
 

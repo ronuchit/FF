@@ -1,11 +1,14 @@
 %{
 #include "ff.h"
 #include "parse.h"
+#define YY_NO_INPUT
 
 /* default yywrap function - always treat EOF as an EOF  */
 int ops_pddlwrap() { return 1; }; 
 
 %}
+
+%option nounput
 
 a [Aa]
 b [Bb]

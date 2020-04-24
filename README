@@ -18,6 +18,7 @@ Have fun,
 Joerg Hoffmann
 
 
-Siddharth Srivastava:
 
-made edits to print states. different from postICAPS version by commenting out some code at the end of output.c. Uncomment to get the postICAPS branch version.
+Rohan Chitnis:
+made edits to get compilation working on Mac, following:
+https://github.com/jsk-ros-pkg/jsk_3rdparty/blob/master/3rdparty/ff/ff.patch
