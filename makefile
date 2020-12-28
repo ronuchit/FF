@@ -14,7 +14,7 @@ CC      = gcc
 # changed from -ansi to -std=gnu99.  -ansi has different meanings on Mac and Linux.
 # on Linux, it doesn't allow use of random() and srandom() (see inst_final.c).
 # [2016/09/28:rpg]
-CFLAGS	= -Wall -g -std=gnu99 $(TYPE) $(ADDONS) 
+CFLAGS	= -Wno-implicit -Wall -g -std=gnu99 $(TYPE) $(ADDONS) 
 # -g -pg
 
 ifeq ($(OS),Windows_NT)
